@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora</title>
+
+	<script>/*
+		setInterval(myTimer, 500);
+
+		function myTimer() {
+			location.reload();
+		}*/
+
+		function calcula(tipo, valor) {
+	        if(tipo === 'op') {
+		          if(valor === 'C'){
+		            //limpar o visor
+		            document.getElementById('mostrador').value = ''
+		          }
+		          if(valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor === '.'){
+		            document.getElementById('mostrador').value += valor
+		          }
+		          if(valor === '=') {
+		            var valor_campo = eval(document.getElementById('mostrador').value)
+		            document.getElementById('mostrador').value = valor_campo
+		          }
+	        }
+	        else if (tipo === 'num') {
+	          document.getElementById('mostrador').value += valor
+	        }
+		}
+	</script>
+
+	<style>
+		table{
+			width: 100%;
+			height: 400px;
+		}
+		#mostrador{
+			width: 90%;
+			height: 100px;
+			text-align: right;
+			font-size: 4em;
+			margin-bottom: 30px;
+			border: 2px double darkslategray;
+		}
+		.caixa{
+			background: gray;
+			width: 400px;
+			height: 600px;
+			margin: auto;
+			border-radius: 5px;
+		}
+		.display{
+			text-align: center;
+			padding: 20px;
+		}
+		.botao{
+			width: 100%;
+			height: 100%;
+			border-radius: 15px;
+			border-style: solid;
+			font-size: 1.8em;
+		}
+		.botao:hover{
+			background: orange;
+		}
+		.botao:active{
+			background: darkorange;
+		}
+	</style>
+</head>
+<body>
+	<div class="caixa">
+		<div class="display">
+			<input id="mostrador" type="text" disabled="disable" value="">
+		</div><!-- end display -->
+
+		<div>
+			<table>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><button onclick="calcula('op', 'C')" class="botao">C</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="calcula('num', '9')" class="botao">9</button></td>
+					<td><button onclick="calcula('num', '8')" class="botao">8</button></td>
+					<td><button onclick="calcula('num', '7')" class="botao">7</button></td>
+					<td><button onclick="calcula('op', '*')" class="botao">X</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="calcula('num', '6')" class="botao">6</button></td>
+					<td><button onclick="calcula('num', '5')" class="botao">5</button></td>
+					<td><button onclick="calcula('num', '4')" class="botao">4</button></td>
+					<td><button onclick="calcula('op', '/')" class="botao">/</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="calcula('num', '3')" class="botao">3</button></td>
+					<td><button onclick="calcula('num', '2')" class="botao">2</button></td>
+					<td><button onclick="calcula('num', '1')" class="botao">1</button></td>
+					<td><button onclick="calcula('op', '+')" class="botao">+</button></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button onclick="calcula('num', '0')"class="botao">0</button></td>
+					<td><button onclick="calcula('op', '=')" class="botao">=</button></td>
+					<td><button onclick="calcula('op', '-')" class="botao">-</button></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
